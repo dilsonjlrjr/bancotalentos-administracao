@@ -19,7 +19,7 @@ import Dashboard from "./views/Dashboard";
 import Profile from "./views/examples/Profile";
 import Maps from "./views/examples/Maps";
 import Register from "./views/examples/Register";
-import Login from "./views/login/Login";
+import Login from "./views/login";
 import Tables from "./views/examples/Tables";
 import Icons from "./views/examples/Icons";
 import { RouteInterface } from "global-interfaces";

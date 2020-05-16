@@ -17,10 +17,30 @@ import {
   InputGroupText,
   InputGroup,
   Row,
-  Col,
+  Col
 } from "reactstrap";
+import ModalForgotPassword from "./ModalForgotPassword";
 
-class Login extends React.Component {
+interface PropsLogin {}
+interface StateLogin {
+  openModalForgotPassword: boolean;
+}
+
+class Login extends React.Component<PropsLogin, StateLogin> {
+  constructor(props: PropsLogin) {
+    super(props);
+
+    this.state = {
+      openModalForgotPassword: false,
+    };
+  }
+
+  toggleModalForgot = (toggle: boolean) => {
+    this.setState({
+      openModalForgotPassword: toggle,
+    });
+  };
+
   render() {
     return (
       <Fragment>
@@ -85,13 +105,15 @@ class Login extends React.Component {
               <a
                 className="text-light"
                 href="#forgot-password"
-                onClick={(e) => e.preventDefault()}
+                onClick={() => this.toggleModalForgot(!this.state.openModalForgotPassword)}
               >
                 <small>Esqueci minha senha</small>
               </a>
             </Col>
           </Row>
         </Col>
+
+        <ModalForgotPassword openModalForgotPassword={this.state.openModalForgotPassword} toggleModalForgot={this.toggleModalForgot} />
       </Fragment>
     );
   }
