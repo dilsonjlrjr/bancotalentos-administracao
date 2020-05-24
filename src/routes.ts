@@ -17,12 +17,10 @@
 */
 import Dashboard from "./views/Dashboard";
 import Profile from "./views/examples/Profile";
-import Maps from "./views/examples/Maps";
-import Register from "./views/examples/Register";
 import Login from "./views/login";
 import Tables from "./views/examples/Tables";
-import Icons from "./views/examples/Icons";
 import { RouteInterface } from "global-interfaces";
+import OpportunityList from "views/opportunity";
 
 let routes: Array<RouteInterface> = [
   {
@@ -33,24 +31,17 @@ let routes: Array<RouteInterface> = [
     layout: "/admin"
   },
   {
-    path: "/icons",
-    name: "Icons",
-    icon: "ni ni-planet text-blue",
-    component: Icons,
-    layout: "/admin"
-  },
-  {
-    path: "/maps",
-    name: "Maps",
-    icon: "ni ni-pin-3 text-orange",
-    component: Maps,
-    layout: "/admin"
-  },
-  {
     path: "/user-profile",
     name: "User Profile",
     icon: "ni ni-single-02 text-yellow",
     component: Profile,
+    layout: "/admin"
+  },
+  {
+    path: "/opportunity",
+    name: "Oportunidade",
+    icon: "ni ni-like-2 text-blue",
+    component: OpportunityList,
     layout: "/admin"
   },
   {
@@ -65,13 +56,6 @@ let routes: Array<RouteInterface> = [
     name: "Login",
     icon: "ni ni-key-25 text-info",
     component: Login,
-    layout: "/auth"
-  },
-  {
-    path: "/register",
-    name: "Register",
-    icon: "ni ni-circle-08 text-pink",
-    component: Register,
     layout: "/auth"
   }
 ];

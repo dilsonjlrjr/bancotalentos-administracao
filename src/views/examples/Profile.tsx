@@ -28,16 +28,28 @@ import {
   Input,
   Container,
   Row,
-  Col
+  Col,
 } from "reactstrap";
 // core components
-import UserHeader from "components/Headers/UserHeader";
+import HeaderDefault from "components/Headers/HeaderDefault";
 
 class Profile extends React.Component {
+  buttonComponent = (
+    <Button color="info" href="#pablo" onClick={(e) => e.preventDefault()}>
+      Edit profile
+    </Button>
+  );
+
   render() {
     return (
       <>
-        <UserHeader />
+        <HeaderDefault
+          title="Hello Jesse"
+          description="This is your profile page. You can see the progress you've made with your work and manage your projects or assigned tasks"
+          image_background={require("assets/img/theme/profile-cover.jpg")}
+
+          component={ this.buttonComponent }
+        />
         {/* Page content */}
         <Container className="mt--7" fluid>
           <Row>
@@ -46,7 +58,7 @@ class Profile extends React.Component {
                 <Row className="justify-content-center">
                   <Col className="order-lg-2" lg="3">
                     <div className="card-profile-image">
-                      <a href="#pablo" onClick={e => e.preventDefault()}>
+                      <a href="#pablo" onClick={(e) => e.preventDefault()}>
                         <img
                           alt="..."
                           className="rounded-circle"
@@ -62,7 +74,7 @@ class Profile extends React.Component {
                       className="mr-4"
                       color="info"
                       href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      onClick={(e) => e.preventDefault()}
                       size="sm"
                     >
                       Connect
@@ -71,7 +83,7 @@ class Profile extends React.Component {
                       className="float-right"
                       color="default"
                       href="#pablo"
-                      onClick={e => e.preventDefault()}
+                      onClick={(e) => e.preventDefault()}
                       size="sm"
                     >
                       Message
@@ -120,7 +132,7 @@ class Profile extends React.Component {
                       Nick Murphy — writes, performs and records all of his own
                       music.
                     </p>
-                    <a href="#pablo" onClick={e => e.preventDefault()}>
+                    <a href="#pablo" onClick={(e) => e.preventDefault()}>
                       Show more
                     </a>
                   </div>
@@ -138,7 +150,7 @@ class Profile extends React.Component {
                       <Button
                         color="primary"
                         href="#pablo"
-                        onClick={e => e.preventDefault()}
+                        onClick={(e) => e.preventDefault()}
                         size="sm"
                       >
                         Settings

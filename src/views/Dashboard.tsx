@@ -15,7 +15,7 @@
 * The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
 */
-import React from "react";
+import React, { Fragment } from "react";
 // node.js library that concatenates classes (strings)
 import classnames from "classnames";
 // javascipt plugin for creating charts
@@ -84,7 +84,7 @@ class Dashboard extends React.Component<PropsDashboard, StateDashboard> {
   };
   render() {
     return (
-      <>
+      <Fragment>
         <Header />
         {/* Page content */}
         <Container className="mt--7" fluid>
@@ -355,7 +355,7 @@ class Dashboard extends React.Component<PropsDashboard, StateDashboard> {
             </Col>
           </Row>
         </Container>
-      </>
+      </Fragment>
     );
   }
 }
