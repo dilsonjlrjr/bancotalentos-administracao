@@ -1,11 +1,12 @@
 {
-  "name": "argon-dashboard-react-typescript",
+  "name": "open-talent",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@fortawesome/fontawesome-free": "5.12.1",
     "chart.js": "2.9.3",
     "classnames": "2.2.6",
+    "clean": "^4.0.2",
     "moment": "2.24.0",
     "node-sass": "4.13.1",
     "nouislider": "14.1.1",
@@ -47,7 +48,8 @@
     "dashboard",
     "dashboard-react",
     "argon-dashboard",
-    "argon-dashboard-react"
+    "argon-dashboard-react",
+    "open-talent"
   ],
   "author": {
     "name": "Creative Tim"
@@ -62,7 +64,7 @@
   "bugs": {
     "url": "https://github.com/creativetimofficial/argon-dashboard-react/issues"
   },
-  "homepage": "https://demos.creative-tim.com/argon-dashboard-react/",
+  "homepage": "https://demos.creative-tim.com/open-talent/",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

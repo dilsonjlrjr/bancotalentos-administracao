@@ -83,7 +83,7 @@ class Dashboard extends React.Component<PropsDashboard, StateDashboard> {
     });
   };
   render() {
-    return (
+    return (    
       <Fragment>
         <Header />
         {/* Page content */}

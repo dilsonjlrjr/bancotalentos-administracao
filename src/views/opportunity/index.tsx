@@ -6,12 +6,6 @@ import {
   Row,
   Card,
   CardHeader,
-  Table,
-  Badge,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
   CardFooter,
   Pagination,
   PaginationLink,
@@ -22,16 +16,93 @@ import {
   InputGroupText,
   Input,
   Col,
+  Badge,
+  UncontrolledDropdown,
+  DropdownToggle,
+  DropdownMenu,
+  DropdownItem,
 } from "reactstrap";
+
+import TableOpenTalent from "components/TableOpenTalent";
 
 interface PropsOpportunityList {}
 
 interface StateOpportunityList {}
 
+interface IElementTableOportunity {
+  name: Object;
+  state: Object;
+  curriculum: Object;
+  display_time: Object;
+  time_al_on_display: Object;
+  dot_element: Object;
+}
+
 export default class OpportunityList extends React.Component<
   PropsOpportunityList,
   StateOpportunityList
 > {
+  getHeaderTableOportunity(): Array<String> {
+    return [
+      "Nome",
+      "Estado",
+      "Currículos",
+      "Tempo de exibição",
+      "Tempo já em exibição",
+      "",
+    ];
+  }
+
+  getContentTableOportunity(): Array<IElementTableOportunity> {
+    return [
+      {
+        name: <span className="mb-0 text-sm">Programador Nível 1</span>,
+        state: (
+          <Badge color="" className="badge-dot mr-4">
+            <i className="bg-success" />
+            Ativo
+          </Badge>
+        ),
+        curriculum: <span className="mr-2">50</span>,
+        display_time: (
+          <div className="d-flex align-items-center">
+            <span className="mr-2">60 dias</span>
+          </div>
+        ),
+        time_al_on_display: (
+          <div className="d-flex align-items-center">
+            <span className="mr-2">10 dias</span>
+          </div>
+        ),
+        dot_element: (
+          <UncontrolledDropdown>
+            <DropdownToggle
+              className="btn-icon-only text-light"
+              href="#pablo"
+              role="button"
+              size="sm"
+              color=""
+              onClick={(e) => e.preventDefault()}
+            >
+              <i className="fas fa-ellipsis-v" />
+            </DropdownToggle>
+            <DropdownMenu className="dropdown-menu-arrow" right>
+              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                Mais detalhes
+              </DropdownItem>
+              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                Desativar oportunidade
+              </DropdownItem>
+              <DropdownItem href="#pablo" onClick={(e) => e.preventDefault()}>
+                Lista de candidatos
+              </DropdownItem>
+            </DropdownMenu>
+          </UncontrolledDropdown>
+        ),
+      },
+    ];
+  }
+
   render() {
     const description: string = `Crie aqui as oportunidades que estarão disponíveis na plataforma.
     Para adicionar uma nova oportunidade clique em Nova Oportunidade`;
@@ -74,80 +145,7 @@ export default class OpportunityList extends React.Component<
                     </Col>
                   </Row>
                 </CardHeader>
-                <Table className="align-items-center table-flush" responsive>
-                  <thead className="thead-light">
-                    <tr>
-                      <th scope="col">Nome</th>
-                      <th scope="col">Estado</th>
-                      <th scope="col">Currículos</th>
-                      <th scope="col">Tempo de exibição</th>
-                      <th scope="col">Tempo já em exibição</th>
-                      <th scope="col" />
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">
-                        <span className="mb-0 text-sm">
-                          Programador Nível 1
-                        </span>
-                      </th>
-                      <td>
-                        <Badge color="" className="badge-dot mr-4">
-                          <i className="bg-success" />
-                          Ativo
-                        </Badge>
-                      </td>
-                      <td>
-                        <span className="mr-2">50</span>
-                      </td>
-                      <td>
-                        <div className="d-flex align-items-center">
-                          <span className="mr-2">60 dias</span>
-                        </div>
-                      </td>
-                      <td>
-                        <div className="d-flex align-items-center">
-                          <span className="mr-2">10 dias</span>
-                        </div>
-                      </td>
-                      <td className="text-right">
-                        <UncontrolledDropdown>
-                          <DropdownToggle
-                            className="btn-icon-only text-light"
-                            href="#pablo"
-                            role="button"
-                            size="sm"
-                            color=""
-                            onClick={(e) => e.preventDefault()}
-                          >
-                            <i className="fas fa-ellipsis-v" />
-                          </DropdownToggle>
-                          <DropdownMenu className="dropdown-menu-arrow" right>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Mais detalhes
-                            </DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Desativar oportunidade
-                            </DropdownItem>
-                            <DropdownItem
-                              href="#pablo"
-                              onClick={(e) => e.preventDefault()}
-                            >
-                              Lista de candidatos
-                            </DropdownItem>
-                          </DropdownMenu>
-                        </UncontrolledDropdown>
-                      </td>
-                    </tr>
-                  </tbody>
-                </Table>
+                <TableOpenTalent header={this.getHeaderTableOportunity()} elements={this.getContentTableOportunity()} />
                 <CardFooter className="py-4">
                   <nav aria-label="...">
                     <Pagination
