@@ -24,10 +24,13 @@ import {
 } from "reactstrap";
 
 import TableOpenTalent from "components/TableOpenTalent";
+import { Redirect } from "react-router";
 
 interface PropsOpportunityList {}
 
-interface StateOpportunityList {}
+interface StateOpportunityList {
+  redirectNewOpportunity: boolean
+}
 
 interface IElementTableOportunity {
   name: Object;
@@ -42,6 +45,14 @@ export default class OpportunityList extends React.Component<
   PropsOpportunityList,
   StateOpportunityList
 > {
+
+  constructor(props:PropsOpportunityList) {
+    super(props)
+    this.state = {
+      redirectNewOpportunity: false
+    };
+  }
+
   getHeaderTableOportunity(): Array<String> {
     return [
       "Nome",
@@ -103,15 +114,25 @@ export default class OpportunityList extends React.Component<
     ];
   }
 
+  makeNewOpportunity(): void {
+    this.setState({
+      redirectNewOpportunity: true
+    })    
+  }
+
   render() {
     const description: string = `Crie aqui as oportunidades que estarão disponíveis na plataforma.
     Para adicionar uma nova oportunidade clique em Nova Oportunidade`;
 
     const buttonNewOpportunity: any = (
-      <Button color="info" type="button">
+      <Button color="info" type="button" onClick={() => this.makeNewOpportunity()}>
         Nova Oportunidade
       </Button>
     );
+
+    if (this.state.redirectNewOpportunity) {
+      return <Redirect to="/admin/opportunity/add" />;
+    }
 
     return (
       <Fragment>
@@ -145,7 +166,10 @@ export default class OpportunityList extends React.Component<
                     </Col>
                   </Row>
                 </CardHeader>
-                <TableOpenTalent header={this.getHeaderTableOportunity()} elements={this.getContentTableOportunity()} />
+                <TableOpenTalent
+                  header={this.getHeaderTableOportunity()}
+                  elements={this.getContentTableOportunity()}
+                />
                 <CardFooter className="py-4">
                   <nav aria-label="...">
                     <Pagination

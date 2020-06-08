@@ -20,24 +20,27 @@ export default class TableOpenTalent extends React.Component<
   PropsTableOpenTalent,
   StateTableOpenTalent
 > {
+
   render() {
+
     return (
       <Fragment>
         <Table className="align-items-center table-flush" responsive>
           <thead className="thead-light">
             <tr>
-              {this.props.header.map((value) => {
-                return <th scope="col">{value}</th>;
+              {this.props.header.map((value, key) => {
+                return <th key={key} scope="col">{value}</th>;
               })}
             </tr>
           </thead>
           <tbody>
-            {this.props.elements?.map((valueElement, index) => {
-              let cell: any = Object.keys(valueElement).map((key: any) => {
-                return <td>{valueElement[key]}</td>;
+            {
+            this.props.elements?.map((valueElement, index) => {
+              let cell: any = Object.keys(valueElement).map((key: any, indexCellKeyTable) => {
+                return <td key={indexCellKeyTable} >{valueElement[key]}</td>;
               });
 
-              return <tr>{cell}</tr>;
+              return <tr key={index}>{cell}</tr>;
             })}
           </tbody>
         </Table>

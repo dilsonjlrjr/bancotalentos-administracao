@@ -50,6 +50,7 @@ class Admin extends React.Component<PropsInterface> {
             path={ prop.layout.concat(prop.path.toString()) }
             component={ prop.component }
             key={key}
+            exact
           />
         );
       } else {

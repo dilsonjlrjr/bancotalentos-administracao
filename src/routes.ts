@@ -21,6 +21,7 @@ import Login from "./views/login";
 import Tables from "./views/examples/Tables";
 import { RouteInterface } from "global-interfaces";
 import OpportunityList from "views/opportunity";
+import NewOpportunity from "views/opportunity/new";
 
 let routes: Array<RouteInterface> = [
   {
@@ -28,35 +29,48 @@ let routes: Array<RouteInterface> = [
     name: "Dashboard",
     icon: "ni ni-tv-2 text-primary",
     component: Dashboard,
-    layout: "/admin"
+    layout: "/admin",
+    showinSidebar: true
   },
   {
     path: "/user-profile",
     name: "User Profile",
     icon: "ni ni-single-02 text-yellow",
     component: Profile,
-    layout: "/admin"
+    layout: "/admin",
+    showinSidebar: true
   },
   {
     path: "/opportunity",
     name: "Oportunidade",
     icon: "ni ni-like-2 text-blue",
     component: OpportunityList,
-    layout: "/admin"
+    layout: "/admin",
+    showinSidebar: true
+  },
+  {
+    path: "/opportunity/add",
+    name: "Criando nova oportunidade",
+    icon: "ni ni-like-2 text-blue",
+    component: NewOpportunity,
+    layout: "/admin",
+    showinSidebar: false
   },
   {
     path: "/tables",
     name: "Tables",
     icon: "ni ni-bullet-list-67 text-red",
     component: Tables,
-    layout: "/admin"
+    layout: "/admin",
+    showinSidebar: true
   },
   {
     path: "/login",
     name: "Login",
     icon: "ni ni-key-25 text-info",
     component: Login,
-    layout: "/auth"
+    layout: "/auth",
+    showinSidebar: false
   }
 ];
 export default routes;

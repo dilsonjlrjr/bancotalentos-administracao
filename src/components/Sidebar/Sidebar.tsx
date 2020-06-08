@@ -65,7 +65,7 @@ class Sidebar extends React.Component<PropsInterface, StateInterface> {
   state: StateInterface;
 
   constructor(props: PropsInterface) {
-    super(props);    
+    super(props);
 
     this.state = {
       collapseOpen: false,
@@ -74,7 +74,7 @@ class Sidebar extends React.Component<PropsInterface, StateInterface> {
   // verifies if routeName is the one active (in browser input)
   activeRoute = (routeName: String) => {
     return this.props.location.pathname.indexOf(routeName) > -1 ? "active" : "";
-  }
+  };
   // toggles collapse between opened and closed (true/false)
   toggleCollapse = () => {
     this.setState({
@@ -90,7 +90,7 @@ class Sidebar extends React.Component<PropsInterface, StateInterface> {
   // creates the links that appear in the left menu / Sidebar
   createLinks: any = (routes: Array<RouteInterface>) => {
     return routes.map((prop: RouteInterface, key) => {
-      return (
+      return prop.showinSidebar ? (
         <NavItem key={key}>
           <NavLink
             to={prop.layout.concat(prop.path.toString())}
@@ -102,7 +102,7 @@ class Sidebar extends React.Component<PropsInterface, StateInterface> {
             {prop.name}
           </NavLink>
         </NavItem>
-      );
+      ) : null;
     });
   };
 
